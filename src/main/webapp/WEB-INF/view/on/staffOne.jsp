@@ -39,7 +39,7 @@
 			<div style="text-align: center;">
 				<img src="${pageContext.request.contextPath}/img/test2.jpg" alt="Test Image" style=" width: 200px; height: 200px; border-radius: 50%;">
 			</div>
-			<div style="text-align: center;">
+			<div class="pt-3" style="text-align: center;">
 				<p>Staff ID: ${staff.staffId}</p>
 			</div>
 		</div>
