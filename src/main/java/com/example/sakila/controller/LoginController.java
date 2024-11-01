@@ -17,10 +17,21 @@ import lombok.extern.slf4j.Slf4j;
 @Controller
 
 public class LoginController {
-	@Autowired
-	private StaffMapper staffMapper;
-	@GetMapping("/off/login")
+	@Autowired private StaffMapper staffMapper;
 	
+	@GetMapping("/on/logout")
+	public String logout(HttpSession session) {
+		session.invalidate();
+		log.debug("로그아웃 성공");
+		return "redirect:/off/login";
+	}
+	// 스프링 api에서 servlet 이 노출되는 건 그닥 선호하지 않지만 우리나라에서는 많이 쓰인다~
+	
+	
+	
+	
+	
+	@GetMapping("/off/login")
 	// 로그인 폼
 	public String login() {
 		log.debug("/off/login 실행됨");

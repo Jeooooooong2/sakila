@@ -26,3 +26,6 @@ public class OffInterceptor implements HandlerInterceptor{
 	}
 }
 
+
+
+// 수업 마칠 때 커밋 앤 푸시 같이 하고 수업 시작 전에 pull이나 패치 해주기
