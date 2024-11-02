@@ -21,6 +21,7 @@ public class LoginController {
 	
 	@GetMapping("/on/logout")
 	public String logout(HttpSession session) {
+		// 로그아웃 했으니까 세션 무효화
 		session.invalidate();
 		log.debug("로그아웃 성공");
 		return "redirect:/off/login";
@@ -41,13 +42,18 @@ public class LoginController {
 	// 로그인 액션
 	@PostMapping("/off/login")
 	public String login(Model model, HttpSession session,
-						@RequestParam(name = "staffId", defaultValue = "1") int staffId,
-						@RequestParam(name = "password") String password) {
-						// => int staffId = Interger.parseInt(request.getParameter("staffId"))
-						// => String password = request.getParameter("password")
+	//  @RequestParam = 클라이언트에서 전송된 요청 파라미터를 메서드의 매개변수로 바인딩
+		@RequestParam(name = "staffId", defaultValue = "1") int staffId,
+		@RequestParam(name = "password") String password) {
+		// => int staffId = Interger.parseInt(request.getParameter("staffId"))
+		// => String password = request.getParameter("password")
+		
+			// 객체 생성
 			Staff paramStaff = new Staff();
+			// staffId, password 값 세팅
 			paramStaff.setStaffId(staffId);
 			paramStaff.setPassword(password);
+			
 			
 			Staff loginStaff = staffMapper.login(paramStaff);
 			
@@ -58,5 +64,4 @@ public class LoginController {
 			session.setAttribute("loginStaff", loginStaff);
 			return "redirect:/on/main";
 		}
-		
 	}

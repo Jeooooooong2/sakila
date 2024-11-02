@@ -8,6 +8,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class SakilaApplication implements WebMvcConfigurer {
+	// @Autowired 애노테이션을 사용하여 OnInterceptor와 OffInterceptor 객체를 자동 주입
 	@Autowired 
 	private OnInterceptor onInterceptor;
 	@Autowired 
@@ -22,6 +23,7 @@ public class SakilaApplication implements WebMvcConfigurer {
 	public void addInterceptors(InterceptorRegistry registry) {
 		// InterceptorRegistry registry : 인터셉터 리스트(맵핑가능)
 		// /on/*으로 시작하는 컨터롤러 가로채어 onInterceptor.preHandle(request, respone)
+		// 레지스트리에 onInterceptor, offInterceptor를 add.
 		registry.addInterceptor(onInterceptor).addPathPatterns("/on/**");
 		registry.addInterceptor(offInterceptor).addPathPatterns("/off/**");
 		WebMvcConfigurer.super.addInterceptors(registry);

@@ -18,10 +18,14 @@ public class OffInterceptor implements HandlerInterceptor{
 		log.debug(request.getRequestURL().toString() + "요청 가로챔");
 		// 로그인을 하지 않았다면 session.setAttribute("loginStaff")
 		HttpSession session = request.getSession();
+		// loginStaff 가 null이 아니라면 (로그인이 되어있다면)
 		if(session.getAttribute("loginStaff") != null) {
+			// on/main 페이지로 이동시키고
 			response.sendRedirect(request.getContextPath() + "/on/main");
+			// false를 리턴한다.
 			return false;
 		}
+		// 로그아웃 상태라면 preHandle 메서드 호출
 		return HandlerInterceptor.super.preHandle(request, response, handler);
 	}
 }
