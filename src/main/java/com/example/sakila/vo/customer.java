@@ -1,5 +1,8 @@
 package com.example.sakila.vo;
 
+import lombok.Data;
+
+@Data
 public class customer {
 	private int customerId; // Pk
 	private int storeId;

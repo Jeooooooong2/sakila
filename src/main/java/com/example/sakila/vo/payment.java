@@ -1,5 +1,8 @@
 package com.example.sakila.vo;
 
+import lombok.Data;
+
+@Data
 public class payment {
 	private int paymentId;
 	private int customerId;

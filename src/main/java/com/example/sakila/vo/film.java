@@ -1,5 +1,8 @@
 package com.example.sakila.vo;
 
+import lombok.Data;
+
+@Data
 public class film {
 	private int filmId; // Pk
 	private String title;
