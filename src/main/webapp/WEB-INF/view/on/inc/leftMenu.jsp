@@ -20,7 +20,8 @@
         <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/logout">로그아웃</a></li>
         
         <li class="list-group-item">::: 스탭 관리 :::</li>
-        <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/staffAdd">스텝 추가</a></li>
+        <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/staffList">스텝 리스트</a></li>
+        <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/addStaff">스텝 추가</a></li>
         <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/staffEdit">스텝 수정</a></li>
         
         <li class="list-group-item">::: 고객 관리 :::</li>
