@@ -27,6 +27,10 @@
         <li class="list-group-item">::: 고객 관리 :::</li>
         <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/customerAdd">고객 추가</a></li>
         <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/customerEdit">고객 수정</a></li>
+        
+        <li class="list-group-item">::: 배우 관리 :::</li>
+        <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/actorList">배우 리스트</a></li>
+        <li class="list-group-item"><a href="${pageContext.request.contextPath}/on/addActor">배우 추가 </a></li>
     </ul>
 </div>
 
