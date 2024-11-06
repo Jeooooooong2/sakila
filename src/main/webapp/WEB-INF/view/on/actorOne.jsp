@@ -73,11 +73,31 @@
 			<!-- FILM -->
 			<div>
 				<h2>출연 작품</h2>
-				<c:forEach var="f" items="${filmList}">
+				<table class="table">
+					<thead>
+				        <tr>
+				            <th>영화 제목</th>
+				            <th>최종 업데이트</th>
+				        </tr>
+				    </thead>
+					<tbody>
+				        <c:forEach var="f" items="${filmList}">
+				            <tr>
+				                <td>
+				                    <a href="${pageContext.request.contextPath}/on/filmOne?filmId=${f.filmId}">
+				                        ${f.title}
+				                    </a>
+				                </td>
+				                <td>${fi.lastUpdate}</td>
+				            </tr>
+				        </c:forEach>
+				    </tbody>
+				</table>
+				<%-- <c:forEach var="f" items="${filmList}">
 					<a href="${pageContext.request.contextPath}/on/filmOne?filmId=${f.filmId}">
 						${f.title}
 					</a>&nbsp;
-				</c:forEach>
+				</c:forEach> --%>
 			</div>
 		</div>
 	</div>
