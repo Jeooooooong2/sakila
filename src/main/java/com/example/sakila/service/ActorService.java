@@ -1,7 +1,9 @@
 package com.example.sakila.service;
 
 import java.io.File;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,28 @@ import lombok.extern.slf4j.Slf4j;
 public class ActorService {
 	@Autowired ActorMapper actorMapper;
 	@Autowired ActorFileMapper actorFileMapper;
+	
+	// /on/filmOne
+	public List<Actor> getActorListByFilm(int filmId) {
+		return actorMapper.selectActorListByFilm(filmId);
+	}
+	
+	// /on/actorOne
+	public Actor getActorOne(int actorId) {
+		return actorMapper.selectActorOne(actorId);
+	}
+	
+	
+	public List<Actor> getActorList(int currentPage, int rowPerPage, String searchWord) {
+		Map<String, Object> paramMap = new HashMap<>();
+		int beginRow = (currentPage - 1) * rowPerPage;
+		paramMap.put("beginRow", beginRow);
+		paramMap.put("rowPerPage", rowPerPage);
+		paramMap.put("searchWord", searchWord);
+		
+		return actorMapper.selectActorList(paramMap);
+	}
+	
 	
 	public void addActor(ActorForm actorForm, String path) {
 		 Actor actor = new Actor();
@@ -58,8 +82,8 @@ public class ActorService {
 					 } catch (Exception e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
-						// 예외 발생하고 예외처리 하지 않아야 @Transactional 작동한다
-						// RuntimeException을 인위적으로 발생
+						// 예외 발생하고 예외처리 하지 않아야지 @Transactional 작동한다
+						// so... RuntimeException을 인위적으로 발생
 						throw new RuntimeException();
 					 }	 
 				 }
