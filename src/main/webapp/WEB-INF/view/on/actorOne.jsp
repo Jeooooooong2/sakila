@@ -42,7 +42,7 @@
 				</tr>
 			</table>
 			<div>
-				<a href="">actor 수정</a>
+				<a href="${pageContext.request.contextPath}/on/modifyActor">actor 수정[과제: 입력폼, 액션, 서비스, 매퍼 세팅]</a>
 			</div>
 			
 			
@@ -67,7 +67,7 @@
 				</c:forEach>
 			</table>
 			<div>
-				<a href="">이미지파일 추가</a>
+				<a href="${pageContext.request.contextPath}/on/addActorFile" class="btn btn-success">이미지파일 추가</a>
 			</div>
 			
 			<!-- FILM -->

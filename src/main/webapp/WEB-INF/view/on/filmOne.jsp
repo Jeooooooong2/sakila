@@ -47,7 +47,10 @@
                 </tr>
                 <!-- 추가 필드가 필요하면 여기에 더 추가 -->
             </table>
+            <div>
+            	<a href=""> 영화 수정</a>
             
+            </div>
             <!-- Actors Table -->
             <h2>작품에 출연한 배우들</h2>
             <table class="table">
