@@ -8,6 +8,11 @@ import com.example.sakila.vo.ActorFile;
 
 @Mapper
 public interface ActorFileMapper {
+	
+	// /on/removeActor
+	int deleteActorFileByActor(int actorId);
+		
+		
 	// on/removeActorFile:Service
 	ActorFile selectActorFileOne(int actorFileId);
 	

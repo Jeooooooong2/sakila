@@ -54,7 +54,13 @@
 				</tr>
 			</table>
 			<div>
-				<a href="${pageContext.request.contextPath}/on/modifyActor">actor 수정[과제: 입력폼, 액션, 서비스, 매퍼 세팅]</a>
+				<a href="${pageContext.request.contextPath}/on/modifyActor?actorId=${actor.actorId}">
+					actor 수정
+				</a>
+				&nbsp;
+				<a href="${pageContext.request.contextPath}/on/removeActor?actorId=${actor.actorId}">
+					actor 삭제
+				</a>
 			</div>
 			
 			

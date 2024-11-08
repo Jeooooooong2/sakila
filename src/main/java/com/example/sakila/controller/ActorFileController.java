@@ -24,7 +24,7 @@ public class ActorFileController {
 	public String removeActorFile(HttpSession session, @RequestParam int actorId, @RequestParam int actorFileId) {
 		String path = session.getServletContext().getRealPath("/upload");
 		actorFileService.removeActorFile(actorFileId,  path);
-		return "redirect:on/actorOne?actorId=" + actorId;
+		return "redirect:/on/actorOne?actorId=" + actorId;
 	}
 	
 	
