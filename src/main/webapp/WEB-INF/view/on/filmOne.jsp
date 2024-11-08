@@ -17,12 +17,24 @@
             <!-- leftMenu.jsp include -->
             <c:import url="/WEB-INF/view/on/inc/leftMenu.jsp"></c:import>
         </div>
-        
+        <!-- 
+			[완료] 1) film 상세
+			1-1) film 수정 > /on/modifyFilm.jsp
+			1-2) film 삭제 > /on/removeFilm.jsp [삭제될 항목] : film_category, film_acotr, film
+			
+			2) flim_category 리스트
+			2-1) flim_category 추가 /on/addFilmCategory
+			2-2) flim_category 삭제 /on/removeFilmCategory
+			
+			[완료] 3) film_actor list
+			3-1) film_actor 추가 : /on/addActorByFilm
+			3-2) film_actor 삭제 : /on/removeFileActor
+		 -->
         <div class="col-sm-10">
             <!-- main content -->
             <h1>FILM ONE</h1>
             
-            <!-- Film Details Table -->
+            <!-- 필름 하나의 상세 정보 -->
             <h2>영화 정보</h2>
             <table class="table">
                 <tr>
@@ -49,7 +61,7 @@
             </table>
             <div>
             	<a href=""> 영화 수정</a>
-            
+            	<a href=""> 영화 삭제</a> <!--  -->
             </div>
             <!-- Actors Table -->
             <h2>작품에 출연한 배우들</h2>

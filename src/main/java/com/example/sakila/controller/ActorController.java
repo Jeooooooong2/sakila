@@ -30,7 +30,9 @@ public class ActorController {
 	
 	@GetMapping("/on/actorOne")
 	public String actorOne(Model model
-							, @RequestParam int actorId) {
+			, @RequestParam int actorId
+			, @RequestParam(defaultValue = "") String searchTitle) {
+		// searchWord = ""이면 actorOne상세보기 요청이고, ""아니면 film검색 요청
 		Actor actor = actorService.getActorOne(actorId);
 		List<ActorFile> actorFileList = actorFileService.getActorFileListByActor(actorId);
 		List<Film> filmList = filmService.getFilmTitleListByActor(actorId);
@@ -38,12 +40,18 @@ public class ActorController {
 		log.debug(actorFileList.toString());
 		log.debug(filmList.toString());
 		
+		if(searchTitle.equals("") == false) { // 필름 제목 검색어가 있다면
+		// film검색결과 리스트를 추가
+		List<Film> searchFilmList = filmService.getFilmListByTitle(searchTitle);
+		model.addAttribute("searchFilmList",searchFilmList);
+		}
+		
 		model.addAttribute("actor", actor);
 		model.addAttribute("actorFileList", actorFileList);
 		model.addAttribute("filmList", filmList);
 		
 		return "on/actorOne";
-	}
+		}
 	
 	@GetMapping("/on/actorList")
 	public String actorList(Model model
@@ -60,18 +68,21 @@ public class ActorController {
 	}
 	
 	@PostMapping("/on/addActor")
-	public String addActor(HttpSession session, Model model, ActorForm actorForm) { // input type="file"
+	public String addActor(HttpSession session
+						, Model model
+						, ActorForm actorForm) { // input type="file"
 		
-	List<MultipartFile> list = actorForm.getActorFile();
-	if(list != null && list.size() != 0) {
-		for(MultipartFile f : list) { // 이미지 파일은 jpg와 png만 가능하다.
-			if(f.getContentType().equals("image/jpeg") == false && f.getContentType().equals("image/png") == false) {
-				model.addAttribute("msg", "이미지 파일만 입력이 가능합니다");
-				return "on/addActor";
+		List<MultipartFile> list = actorForm.getActorFile();
+		if(list != null && list.size() != 0) { // 첨부된 파일이 있다면
+			for(MultipartFile f : list) { // 이미지파일은 *.jpg or *.png 가능
+				if(f.getContentType().equals("image/jpeg") == false
+						&& f.getContentType().equals("image/png") == false) {
+					model.addAttribute("msg", "이미지 파일만 입력이 가능합니다");
+					return "on/addActor";
+				}
 			}
 		}
-	}
-			
+		
 		String path = session.getServletContext().getRealPath("/upload/");
 		log.debug(path);
 		

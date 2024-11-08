@@ -21,10 +21,9 @@
 		<div class="col-sm-10">
 			<!-- main content -->
 			<h1>ACTOR FILE ADD</h1>
-			<div>
-				${msg}
 			
-			</div>
+			<div>${msg}</div>
+			
 			<form id="formAddActorFile" 
 				  method="post" enctype="multipart/form-data"
 				  action="${pageContext.request.contextPath}/on/addActorFile">
@@ -34,8 +33,6 @@
 						<td>actorId</td>
 						<td>
 							<input type="text" name="actorId" value="${actorId}" readonly>
-							<input type="hidden" name="actorId" value="${actorId}">
-							
 						</td>
 					</tr>
 					<tr>
@@ -45,7 +42,6 @@
 								<button type="button" id="btnAddFile">파일폼 추가</button>
 								<button type="button" id="btnRemoveFile">파일폼 삭제</button>
 								<input type="file" name="actorFile" class="actorFile">
-								
 							</div>
 						</td>
 					</tr>
