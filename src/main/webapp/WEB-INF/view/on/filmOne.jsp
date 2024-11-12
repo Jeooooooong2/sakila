@@ -63,6 +63,10 @@
             	<a href=""> 영화 수정</a>
             	<a href=""> 영화 삭제</a> <!--  -->
             </div>
+            
+            <div>
+				<h2>작품 장르(CATEGORY)</h2>
+			</div>
             <!-- Actors Table -->
             <h2>작품에 출연한 배우들</h2>
             <table class="table">

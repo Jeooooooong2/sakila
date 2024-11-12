@@ -6,22 +6,17 @@ import lombok.Data;
 
 @Data
 public class FilmForm {
-	private String title;
-	private String description;
-	private String releaseYear;
-	private int languageId;
-	private int originalLanguageId;
+	private String title; 
+	private String description; // NULL
+	private Integer releaseYear; // NULL
+	private int languageId; 
+	private Integer originalLanguageId; // NULL
 	private int rentalDuration;
-	private Double rentalRate;
-	private int length;
-	private Double replacementCost;
-	private String rating;
+	private double rentalRate;
+	private Integer length; // 기본값 NULL
+	private double replacementCost;
+	private String rating; 
 	
-	private List<String> specialFeatures;
-	
-	public Film changeFilm() {
-		Film f = new Film();
-		f.setTitle(this.title);
-		return f;
-	}
+	private List<String> specialFeatures; // 기본값 NULL
+	// private String[] specialFeatures;
 }
