@@ -66,9 +66,31 @@
             
             <div>
 				<h2>작품 장르(CATEGORY)</h2>
+				<!-- 영화 카테고리 추가 -->
+				<form method="post">
+					<select name="categoryId" id="categoryId">
+						<option value=""> 카테고리 선택 </option>
+						<!-- model.allcategoryList -->
+					</select>
+				</form>
+				
+				<!--  카테고리 리스트 -->
+				
+				
+				
 			</div>
             <!-- Actors Table -->
             <h2>작품에 출연한 배우들</h2>
+            
+            	<!-- 배우이름 검색 -->
+            	
+            	<form method="post">
+            		<select anme="actorId" id="actorId">
+            			<option value=""> 배우 선택 </option>
+            			<!-- model.categoryList -->
+            		</select>
+            	
+            	</form>
             <table class="table">
                 <thead>
                     <tr>
