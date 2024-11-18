@@ -12,15 +12,21 @@
 	</li>
 	
 	<li class="list-group-item bg-light fw-bold">
-		::: 지점 관리 :::
+		::: 지점&인벤토리 관리 :::
 	</li>
 	<li class="list-group-item bg-light">
-		<a href="" class="btn">지점 리스트</a>
+		<a href="${pageContext.request.contextPath}/on/storeList" class="btn">지점 리스트</a>
+		<!--
+			StoreMapper.selectStroeList() : List<Map> - store x staff x adress
+			StoreService.getStoreList() : List<Map>
+			GET - /on/storeList - StoreController.storeList() - storeList.jsp
+		-->
 	</li>
 	<li class="list-group-item bg-light">
-		<a href="" class="btn">지점 추가</a>
+		<a href="${pageContext.request.contextPath}/on/addStore" class="btn">지점 추가</a>
 	</li>
 	
+	<!-- ------------------------------------------------------------------------ -->
 	<li class="list-group-item bg-light fw-bold">
 		::: STAFF 관리 :::
 	</li>
@@ -31,14 +37,27 @@
 		<a href="${pageContext.request.contextPath}/on/addStaff" class="btn">스탭 추가</a>
 	</li>
 	
+	<!-- 영화관리 부분 -->
 	<li class="list-group-item bg-light fw-bold">
 		::: 영화 관리 :::
 	</li>
 	<li class="list-group-item bg-light">
-		<a href="" class="btn">영화 리스트</a>
+		<a href="${pageContext.request.contextPath}/on/CategoryList" class="btn">카테고리 리스트</a>
 	</li>
 	<li class="list-group-item bg-light">
-		<a href="${pageContext.request.contextPath}/on/addFilm" class="btn">영화 추가</a>
+		<a href="${pageContext.request.contextPath}/on/addCategory" class="btn">카테고리 추가</a>
+	</li>
+	<li class="list-group-item bg-light">
+		<a href="${pageContext.request.contextPath}/on/languageList" class="btn">언어 리스트</a>
+	</li>
+	<li class="list-group-item bg-light">
+		<a href="${pageContext.request.contextPath}/on/addLanguage" class="btn">언어 추가</a>
+	</li>
+	<li class="list-group-item bg-light">
+		<a href="${pageContext.request.contextPath}/on/filmList" class="btn">필름 리스트</a>
+	</li>
+	<li class="list-group-item bg-light">
+		<a href="${pageContext.request.contextPath}/on/addFilm" class="btn">필름 추가</a>
 	</li>
 	
 	
@@ -46,7 +65,7 @@
 		::: 고객 관리 :::
 	</li>
 	<li class="list-group-item bg-light">
-		<a href="">고객 리스트</a>
+		<a href="" class="btn">고객 리스트</a>
 	</li>
 	<li class="list-group-item bg-light">
 		<a href="" class="btn">고객 추가</a>
