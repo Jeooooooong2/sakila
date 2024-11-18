@@ -1,6 +1,7 @@
 package com.example.sakila.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -25,6 +26,35 @@ public class CustomerController {
 	@Autowired StoreService storeService;
 	@Autowired AddressService addressService;
 	
+	
+	@GetMapping("/on/customerOne") // 고객 상세 페이지를 위한 매핑 추가
+    public String customerOne(@RequestParam("customerId") Integer customerId, Model model) {
+        // 고객 상세 정보 가져오기
+        Customer customer = customerService.getCustomerById(customerId);
+        model.addAttribute("customer", customer);
+        
+        return "on/customerOne"; // 고객 상세 페이지로 이동
+    }
+	
+	
+	@GetMapping("/on/customerList")
+	public String customerList(Model model
+							, @RequestParam(defaultValue = "1") Integer currentPage
+							, @RequestParam(defaultValue = "10") Integer rowPerPage) {
+		Map<String, Object> resultMap = customerService.getCustomerList(currentPage, rowPerPage);
+		
+		log.debug(resultMap.toString());
+		
+		model.addAttribute("currentPage", currentPage);
+		// resultMap 풀어서.... 이동(통으로 넘기면 View코드 복잡...)
+		model.addAttribute("startPagingNum", resultMap.get("startPagingNum"));
+		model.addAttribute("endPagingNum", resultMap.get("endPagingNum"));
+		model.addAttribute("customerList", resultMap.get("customerList"));
+		
+		return "on/customerList";
+	}
+	
+	
 	@GetMapping("/on/addCustomer")
 	public String addCustomer(Model model
 							, @RequestParam(required = false) String searchAddress) {
@@ -41,7 +71,7 @@ public class CustomerController {
 		return "on/addCustomer";
 	}
 	
-	@PostMapping
+	@PostMapping("/on/addCustomer")
 	public String addCustomer(Customer customer) {
 		// 고객추가
 		Integer row = customerService.addCustomer(customer);
